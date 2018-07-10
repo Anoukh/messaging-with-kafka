@@ -605,19 +605,14 @@ Follow the below steps to set up Prometheus and view metrics for product_admin_p
 
 - You can add the following configurations for metrics. Note that these configurations are optional if you already have the basic configuration in `ballerina.conf` as described under `Observability` section.
 
-```ballerina
+```
    [b7a.observability.metrics]
    enabled=true
-   provider="micrometer"
-
-   [b7a.observability.metrics.micrometer]
-   registry.name="prometheus"
+   reporter="prometheus"
 
    [b7a.observability.metrics.prometheus]
    port=9700
-   hostname="0.0.0.0"
-   descriptions=false
-   step="PT1M"
+   host="0.0.0.0"
 ```
 
 - Create a file `prometheus.yml` inside `/tmp/` location. Add the below configurations to the `prometheus.yml` file.
